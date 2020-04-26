@@ -14,12 +14,14 @@ void ForTest(){
 struct Student{ //学生类
 	//学生对象初始化
 	void SetStudent(char* name,int age){
+		cout << this << endl;//验证隐藏参数this
+
 		strcpy(_name, name);
 		_age = age;
 	}
 
-	void StudentPrint(){
-		cout << "my name is " << _name << endl;
+	void StudentPrint(){ //实际此处还有一个隐藏参数Student* count this
+		cout << "my name is " << _name << endl; //此处 _name 实际为 this->_name
 		cout << "I am " << _age << " years old." << endl;
 	}
 
