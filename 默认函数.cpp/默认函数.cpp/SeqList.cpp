@@ -27,9 +27,9 @@ void TestSeqList(){
 
 }
 
-int main(){
-	//TestSeqList();
-
-	TestStudent();
-	return 0;
-}
+//int main(){
+//	//TestSeqList();
+//
+//	TestStudent();
+//	return 0;
+//}
