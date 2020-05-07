@@ -34,8 +34,8 @@ private:
 	B c;
 };
 
-int main(){
-	A test(20);
-
-	return 0;
-}
+//int main(){
+//	A test(20);
+//
+//	return 0;
+//}
