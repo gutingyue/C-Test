@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "String模拟实现", "String模拟实现\String模拟实现.vcxproj", "{C41BD42F-A51C-4FB7-BFB7-32AC684F6B42}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test-vector", "Test-vector\Test-vector.vcxproj", "{8F2EC5DF-4A53-44BB-986D-88BE69058817}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C41BD42F-A51C-4FB7-BFB7-32AC684F6B42}.Debug|Win32.ActiveCfg = Debug|Win32
-		{C41BD42F-A51C-4FB7-BFB7-32AC684F6B42}.Debug|Win32.Build.0 = Debug|Win32
-		{C41BD42F-A51C-4FB7-BFB7-32AC684F6B42}.Release|Win32.ActiveCfg = Release|Win32
-		{C41BD42F-A51C-4FB7-BFB7-32AC684F6B42}.Release|Win32.Build.0 = Release|Win32
+		{8F2EC5DF-4A53-44BB-986D-88BE69058817}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8F2EC5DF-4A53-44BB-986D-88BE69058817}.Debug|Win32.Build.0 = Debug|Win32
+		{8F2EC5DF-4A53-44BB-986D-88BE69058817}.Release|Win32.ActiveCfg = Release|Win32
+		{8F2EC5DF-4A53-44BB-986D-88BE69058817}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
