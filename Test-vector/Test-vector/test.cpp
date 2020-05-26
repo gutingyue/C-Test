@@ -93,13 +93,56 @@ void TestVector5(){
 	cout << *pos << endl;
 
 }
+
+//vector二维数组
+void TestVector6(){
+	vector<vector<char>> cv;
+	cv.resize(5,vector<char>(7,'*'));
+	for (size_t i = 0;i<cv.size();i++){
+		for (size_t j = 0;j<cv[i].size();j++){
+			cout << cv[i][j] ;
+		}
+		cout << endl;
+	}
+}
+
+//杨辉三角
+vector<vector<int>> generate(int numRows){
+	vector<vector<int>> vv;
+	vv.resize(numRows);
+
+	for (size_t row = 0; row < numRows ; row++){
+		vv[row].resize(row + 1);//每一行元素个数为行号加1
+
+		vv[row][0] = 1;
+		vv[row][row] = 1;
+	}
+
+	for (size_t row = 2; row < numRows ; row++){ //从第三行开始，给其他元素赋值
+		for (size_t i = 1; i < vv[row].size() - 1; i++){ //每行从第二个元素开始赋值
+			vv[row][i] = vv[row - 1][i] + vv[row - 1][i - 1]; //其他元素的值为： 上一行元素 + 上一行元素的上一个元素
+		}
+	}
+
+	return vv;
+}
+
 int main(){
 
 	//TestVector1();
 	//TestVector2();
 	//TestVector3();
 	//TestVector4();
-	TestVector5();
+	//TestVector5();
+	//TestVector6();
+
+	vector<vector<int>> vv=generate(5);
+	for (size_t i = 0; i < vv.size(); i++){
+		for (size_t j = 0; j < vv[i].size(); j++){
+			cout << vv[i][j];
+		}
+		cout << endl;
+	}
 
 	return 0;
 }
