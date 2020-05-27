@@ -110,12 +110,21 @@ namespace vec
 		//扩容
 		iterator reserve(int n){
 			if (n > capacity()){
-				size_t s = size();
+				size_t oldsize = size(); //size要提前保存，当start/finish改变后，就无法计算原空间的size了
+				//申请新空间
 				iterator newStart = new T[n];
+				//拷贝元素
+				finish = newStart; 
+
+				//不能使用memecpy(newStart,start,sizeof(T)*size)来拷贝
+				for (int i = 0; i < oldsize;i++)
+				{
+					*finish++ = *(start + i); //若T为自定义类型，就会调用赋值运算符重载（深拷贝）
+				}
+				//释放旧空间
 				delete[] start;
 
 				start = newStart;
-				finish = start + s;
 				end_of_storage = start + n;
 			}
 			return start;
@@ -128,11 +137,12 @@ namespace vec
 					reserve(n);
 				}
 
-				while (n--){
+				int i = n - size();
+				while (i--){
 					*finish++ = data;
 				}
 			}
-			else(n < size()){
+			else if (n < size()){
 				finish = start + n;
 			}
 			return start;
@@ -182,9 +192,15 @@ namespace vec
 				return start;
 			}
 
+			//是否需要扩容
 			if (finish == end_of_storage){
+				size_t PosSize = pos - start;
 				reserve((capacity()+1) * 2);//不能直接写成capacity*2 ,若给空vector直接插入，就无法扩容
+				
+				//reserve之后pos指向无效空间
+				pos = start + PosSize; //reserve之后要重置pos
 			}
+
 			iterator it = finish;
 			while (it != pos)
 				*it = *(--it);

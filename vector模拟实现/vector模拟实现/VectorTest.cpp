@@ -53,17 +53,62 @@ void vectorTest3(){
 	v1.push_back(3);
 	v1.push_back(4);
 
+	auto it = v1.begin();
+	while (it != v1.end())
+		cout << *it++ << " ";
+	cout << endl;
+
 	v1.pop_back();
 
+	//it = v1.begin();
+	//while (it != v1.end())
+	//	cout << *it++ << " ";
+	//cout << endl;
+
 	v1.insert(v1.begin()+3, 4);
-	v1.erase(v1.end() - 1);
+
+	//it = v1.begin();
+	//while (it != v1.end())
+	//	cout << *it++ << " ";
+	//cout << endl;
+
+	v1.erase(v1.end() - 2);
+
+	//it = v1.begin();
+	//while (it != v1.end())
+	//	cout << *it++ << " ";
+	//cout << endl;
+
+	v1.resize(10, 0);
+	//it = v1.begin();
+	//while (it != v1.end())
+	//	cout << *it++ << " ";
+	//cout << endl;
+
+	v1.resize(2);
+	//it = v1.begin();
+	//while (it != v1.end())
+	//	cout << *it++ << " ";
+	//cout << endl;
+
 }
 
+
+//关于reserve中不能使用mecepy进行拷贝的测试
+void vectorTest4(){
+	vec::Vector<string> v;
+
+	v.push_back("1111");
+	v.push_back("2222");
+	v.push_back("3333");
+
+}
 
 int main(){
 	//vectorTest1();
 	//vectorTest2();
-	vectorTest3();
+	//vectorTest3();
+	vectorTest4();
 
 	return 0;
 }
