@@ -9,18 +9,17 @@ using namespace std;
 void Test1(){
 	List<int> L1;
 
-	//List<int> L2(5, 1);
+	List<int> L2(5, 1);
 
-	//auto it = L2.begin();
-	//while (it != L1.end())
-	//	cout << *it++ << " "; 
-	//cout << endl;
+	auto it = L2.begin();
+	while (it != L2.end())
+		cout << *it++ << " "; 
+	cout << endl;
 
 	vector<int> v{ 9, 8, 7, 6, 5, 4 };
-
 	List<int> L3(v.begin(), v.end());
 
-	auto it = L3.begin();
+	it = L3.begin();
 	while (it != L3.end())
 		cout << *it++ << " ";
 	cout << endl;
@@ -38,7 +37,7 @@ void Test2(){
 	L1.push_back(3);
 	L1.push_back(4);
 
-	ListIterator<int> it = L1.begin();
+	auto it = L1.begin();
 	while (it != L1.end())
 		cout << *it++ << " "; //尽可能选择前置++ ，效率较高
 	cout << endl;
@@ -51,12 +50,34 @@ void Test2(){
 	while (it != L1.end())
 		cout << *it++ << " ";
 	cout << endl;
+
+	L1.push_front(0);
+
+	L1.resize(2);
+
+	it = L1.begin();
+	while (it != L1.end())
+		cout << *it++ << " ";
+	cout << endl;
+
+	//auto cur = find(L1.begin(), L1.end(), 2); //自己写的迭代器，无法配合find()算法
+
+	L1.insert(L1.begin(), 0);
+
+	it = L1.begin();
+	while (it != L1.end())
+		cout << *it++ << " ";
+	cout << endl;
+
 }
 
+void Test3(){
+
+}
 
 int main(){
 	Test1();
-	Test2();
+	//Test2();
 
 	return 0;
 }

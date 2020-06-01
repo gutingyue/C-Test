@@ -26,8 +26,9 @@ namespace lis{
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//iterator
-	template<class T>
+	template<class T,class Ref,class Ptr>
 	class ListIterator{
+		typedef ListIterator < T, Ref, Ptr> Self;
 	public:
 		ListIterator(ListNode<T>* pNode = nullptr)
 			:_pNode(pNode)
@@ -44,13 +45,13 @@ namespace lis{
 		}
 		
 		//前置++
-		ListIterator& operator++(){
+		Self& operator++(){
 			_pNode = _pNode->_next;
-			return _pNode;
+			return Self(_pNode);
 		}
 
 		//后置++
-		ListIterator operator++(int){
+		Self operator++(int){
 			ListIterator temp = _pNode;
 			_pNode = _pNode->_next;
 			return temp;
@@ -90,15 +91,17 @@ namespace lis{
 	class List{
 	public:
 		typedef ListNode<T> Node;
-		typedef ListIterator<T> iterator;
-	public:
+
+		typedef ListIterator<T,T&,T*> iterator;
+		typedef ListIterator<T,const T&,const T*> const_iterator;
+
 		////////////////////////////////////////////////////////////////////
 		//构造函数
 		List(){
 			CreateHead();
 		}
 		
-		List(size_t n,const T& val = T()){
+		List(int n,const T& val = T()){
 			CreateHead();
 			while (n-- > 0){
 				push_back(val);
@@ -146,12 +149,15 @@ namespace lis{
 			return iterator(head); //此处根据head生成匿名对象，并返回
 		}
 
+		const_iterator cbegin()const{ return const_iterator(head->_next); }
+		const_iterator cend()const{ return const_iterator(head); }
+
 		////////////////////////////////////////////////////////////////////
 		//容量相关操作
 		size_t size()const{
 			size_t count = 0;
-			for (auto it = begin(); it != end(); it++)
-				const++;
+			for (auto it = cbegin(); it != cend();++it)
+				count++;
 
 			return count;
 		}
