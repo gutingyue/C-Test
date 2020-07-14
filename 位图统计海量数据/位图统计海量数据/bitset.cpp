@@ -2,6 +2,11 @@
 #include <vector>
 #include <assert.h>
 
+//给定40亿个无符号整数，未排序，检测一个无符号整数是否存在
+//使用位图解决
+
+
+//自定义的位操作
 namespace mybitset
 {
 	template <size_t N> //N为位数
@@ -60,7 +65,7 @@ namespace mybitset
 	};
 }
 
-void taseBit(){
+void taseMyBitset(){
 	size_t array[] = { 1, 6, 55, 23, 11, 12, 13 };
 	mybitset::bitset<56> bt;
 
@@ -78,8 +83,27 @@ void taseBit(){
 
 }
 
-int main(){
-	taseBit();
+//使用库中的bitset类
+#include <bitset>
 
+void test_bitset(){
+	size_t array[] = { 1, 6, 55, 23, 11, 12, 13 };
+	std::bitset<56> bt;
+	for (auto e : array){ //将数组中数据遍历统计，相应比特位置1
+		bt.set(e);
+	}
+
+	std::cout << "count: " << bt.count() << std::endl;
+	std::cout << "size: " << bt.size() << std::endl;
+
+	if (bt.test(6)){
+		std::cout << "6 can find" << std::endl;
+	}
+	bt.reset(23);
+}
+
+int main(){
+	//taseMyBitset();
+	test_bitset();
 	return 0;
 }
