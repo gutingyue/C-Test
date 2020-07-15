@@ -13,7 +13,7 @@ namespace mybitset
 	class bitset{
 	public:
 		bitset()
-			:array(N/8+1)
+			:_bit(N/8+1)
 		{}
 
 		//比特位为1的总数
@@ -32,7 +32,7 @@ namespace mybitset
 			size_t byte = pos / 8; //哪个字节
 			size_t bit = pos % 8; //哪个比特位
 
-			array[byte] |= (1 << bit); //1向左移bit位
+			_bit[byte] |= (1 << bit); //1向左移bit位
 			_count++;
 		}
 
@@ -43,7 +43,7 @@ namespace mybitset
 			size_t bit = pos % 8; //哪个比特位
 											//1100 1010
 											//0000 1000  1左移bit位
-			array[byte] &= (!(1 << bit)); //1111 0111  取反
+			_bit[byte] &= (!(1 << bit)); //1111 0111  取反
 			_count--;
 		}
 
@@ -53,14 +53,14 @@ namespace mybitset
 			size_t byte = pos / 8; //哪个字节
 			size_t bit = pos % 8; //哪个比特位
 											//1100 1010
-			if (array[byte] &= (1 << bit)){ //0000 1000 
+			if (_bit[byte] &= (1 << bit)){ //0000 1000 
 				return true;
 			}
 			return false;
 		}
 
 	private:
-		std::vector<char> array; //一个char占一个比特位
+		std::vector<char> _bit; //一个char占一个比特位
 		size_t _count; //比特位为1的总数
 	};
 }
