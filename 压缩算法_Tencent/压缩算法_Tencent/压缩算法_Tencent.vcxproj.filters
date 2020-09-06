@@ -15,16 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Base64Tool.cpp">
+    <ClCompile Include="压缩算法.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Base64.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Base64.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>
