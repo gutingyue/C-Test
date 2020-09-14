@@ -11,8 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{99CC0797-85CB-4B55-BDB5-2C647EFB6EC8}</ProjectGuid>
-    <RootNamespace>Tencent_笔试2</RootNamespace>
+    <ProjectGuid>{7BCBDE0E-5385-4439-BCD8-408D11A8DEB1}</ProjectGuid>
+    <RootNamespace>巨人网络笔试</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -64,7 +64,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Tencent.cpp" />
+    <ClCompile Include="test01.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
